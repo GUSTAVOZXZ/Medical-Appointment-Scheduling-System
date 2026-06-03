@@ -1,0 +1,5 @@
+package Project Software Engineer.Dados;
+
+public class Credencial {
+    
+}
