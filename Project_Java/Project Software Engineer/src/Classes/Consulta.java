@@ -37,13 +37,13 @@ public class Consulta {
 
     public String toString(){
         return "=== CONSULTA ==="
-                + "\n Paciente: " +paciente.getNome()
-                + "\n Médico: " +medico.getNome()
-                + "\n Especialidade: "+medico.getEspecialidade()
-                + "\n Data: "+data
-                + "\n Horário: "+horario
-                + "\n Status: "+status
-                + "\n Obs: "+observacao;
+                + "\n Paciente: " + paciente.getNome() + " | CPF: " + paciente.getCpf()
+                + "\n Médico: " + medico.getNome() + " | CRM: " + medico.getCrm()
+                + "\n Especialidade: " + medico.getEspecialidade()
+                + "\n Data: " + data
+                + "\n Horário: " + horario
+                + "\n Status: " + status
+                + "\n Obs: " + observacao;
     }
     
 }
