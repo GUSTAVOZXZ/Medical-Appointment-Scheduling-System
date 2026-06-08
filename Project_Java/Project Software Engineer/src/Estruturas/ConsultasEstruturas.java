@@ -35,7 +35,7 @@ public class ConsultasEstruturas {
         System.out.println("|| Consulta agendada com sucesso! ||");
     }
 
-    public ArrayList<Consultas> getLista(){
+    public ArrayList<Consulta> getLista(){
         return lista;
     }
 
