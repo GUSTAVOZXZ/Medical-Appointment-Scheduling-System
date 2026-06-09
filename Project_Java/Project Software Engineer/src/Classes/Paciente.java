@@ -1,6 +1,7 @@
 package Classes;
 
-public class Paciente extends Pessoa{
+public class Paciente extends Pessoa {
+
     private String planoSaude;
     private String telefone;
     private Endereco endereco;
@@ -12,26 +13,23 @@ public class Paciente extends Pessoa{
         this.telefone = telefone;
     }
 
-    public String getTelefone() {return telefone;}
-    public void setTelefone(String telefone) {this.telefone = telefone;}
+    public String getTelefone() { return telefone; }
+    public void setTelefone(String telefone) { this.telefone = telefone; }
 
-    public Endereco getEndereco() {return endereco;}
-    public void setEndereco(Endereco endereco) {this.endereco = endereco;}
+    public Endereco getEndereco() { return endereco; }
+    public void setEndereco(Endereco endereco) { this.endereco = endereco; }
 
-    public String getPlanoSaude() {return planoSaude;}
-    public void setPlanoSaude(String planoSaude) {this.planoSaude = planoSaude;}
+    public String getPlanoSaude() { return planoSaude; }
+    public void setPlanoSaude(String planoSaude) { this.planoSaude = planoSaude; }
 
     @Override
-    public String getTipo(){return "Paciente";}
+    public String getTipo() { return "Paciente"; }
 
     @Override
     public String toString() {
-        return super.toString()+", Plano de Saúde: " + planoSaude + ", Telefone= " + telefone + ", Endereço= " + endereco + "]";
+        return super.toString()
+                + ", Plano de Saúde: " + planoSaude
+                + ", Telefone= " + telefone
+                + ", Endereço= " + endereco + "]";
     }
-
-   
-
-    
-
-
 }

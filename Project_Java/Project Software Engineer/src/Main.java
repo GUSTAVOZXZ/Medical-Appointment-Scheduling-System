@@ -1,14 +1,42 @@
 import Classes.*;
 import Estruturas.*;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        PacienteEstrutura pacienteEst = new PacienteEstrutura();
-        MedicoEstruturas medicoEst = new MedicoEstruturas();
+
+        // --- TELA DE LOGIN ---
+        CredencialEstrutura credencialEst = new CredencialEstrutura();
+
+        System.out.println("\n=== SISTEMA DE GESTÃO MÉDICA ===");
+        System.out.println("--- LOGIN ---");
+
+        boolean logado = credencialEst.realizarLogin(scanner);
+
+        if (!logado) {
+            System.out.println("\nDeseja redefinir sua senha?");
+            System.out.println("1. Sim");
+            System.out.println("2. Não (encerrar)");
+            System.out.print("Escolha: ");
+            String opcaoRed = scanner.nextLine();
+
+            if (opcaoRed.equals("1")) {
+                credencialEst.redefinirSenha(scanner);
+                System.out.println("Reinicie o sistema para fazer login com a nova senha.");
+            } else {
+                System.out.println("Encerrando sistema...");
+            }
+
+            scanner.close();
+            return;
+        }
+
+        // --- MENU PRINCIPAL ---
+        // Pacientes e Médicos carregados antes das Consultas (que dependem deles)
+        PacienteEstrutura pacienteEst    = new PacienteEstrutura();
+        MedicoEstruturas medicoEst       = new MedicoEstruturas();
         ConsultasEstruturas consultasEst = new ConsultasEstruturas(pacienteEst, medicoEst);
 
         int opcao = 0;
@@ -20,7 +48,7 @@ public class Main {
             System.out.println("3. Cadastrar (Paciente ou Médico)");
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
-            
+
             opcao = scanner.nextInt();
             scanner.nextLine();
 
@@ -29,7 +57,7 @@ public class Main {
                     System.out.print("CPF do Paciente: ");
                     String cpf = scanner.nextLine();
                     Paciente p = pacienteEst.buscarPorCpf(cpf);
-                    
+
                     if (p == null) {
                         System.out.println("Erro: Paciente não encontrado! Cadastre-o primeiro.");
                         break;
@@ -60,7 +88,6 @@ public class Main {
                     break;
 
                 case 3:
-                    // LÓGICA DE CADASTRO
                     System.out.println("\nO que deseja cadastrar?");
                     System.out.println("1. Paciente");
                     System.out.println("2. Médico");
@@ -76,8 +103,19 @@ public class Main {
                         String dataN = scanner.nextLine();
                         System.out.print("Plano de Saúde: ");
                         String plano = scanner.nextLine();
-                        
-                        Paciente novoP = new Paciente(null, "0000-0000", nome, cpfPac, dataN, plano);
+                        System.out.print("Telefone: ");
+                        String tel = scanner.nextLine();
+                        System.out.print("Rua: ");
+                        String rua = scanner.nextLine();
+                        System.out.print("Número: ");
+                        String num = scanner.nextLine();
+                        System.out.print("Cidade: ");
+                        String cidade = scanner.nextLine();
+                        System.out.print("Estado (UF): ");
+                        String estado = scanner.nextLine();
+
+                        Endereco end   = new Endereco(rua, num, cidade, estado);
+                        Paciente novoP = new Paciente(end, tel, nome, cpfPac, dataN, plano);
                         pacienteEst.adicionar(novoP);
                         System.out.println("Paciente cadastrado com sucesso!");
 
@@ -93,7 +131,7 @@ public class Main {
                         scanner.nextLine();
                         System.out.print("Especialidade: ");
                         String esp = scanner.nextLine();
-                        
+
                         Medico novoM = new Medico(crmMed, esp, nome, cpfMed, dataN);
                         medicoEst.adicionar(novoM);
                         System.out.println("Médico cadastrado com sucesso!");
@@ -103,10 +141,12 @@ public class Main {
                 case 4:
                     System.out.println("Encerrando sistema...");
                     break;
+
                 default:
                     System.out.println("Opção inválida!");
             }
         }
+
         scanner.close();
     }
 }

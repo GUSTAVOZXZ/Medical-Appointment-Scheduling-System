@@ -1,6 +1,7 @@
 package Classes;
 
 public class Consulta {
+
     private Paciente paciente;
     private Medico medico;
     private String data;
@@ -17,33 +18,33 @@ public class Consulta {
         this.status = "Agendada";
     }
 
-    public Paciente getPaciente() {return paciente;}
-    public void setPaciente(Paciente paciente) {this.paciente = paciente;}
+    public Paciente getPaciente() { return paciente; }
+    public void setPaciente(Paciente paciente) { this.paciente = paciente; }
 
-    public Medico getMedico() {return medico;}
-    public void setMedico(Medico medico) {this.medico = medico;}
+    public Medico getMedico() { return medico; }
+    public void setMedico(Medico medico) { this.medico = medico; }
 
-    public String getData() {return data;}
-    public void setData(String data) {this.data = data;}
+    public String getData() { return data; }
+    public void setData(String data) { this.data = data; }
 
-    public String getHorario() {return horario;}
-    public void setHorario(String horario) {this.horario = horario;}
+    public String getHorario() { return horario; }
+    public void setHorario(String horario) { this.horario = horario; }
 
-    public String getStatus() {return status;}
-    public void setStatus(String status) {this.status = status;}
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public String getObservacao() {return observacao;}
-    public void setObservacao(String observacao) {this.observacao = observacao;}
+    public String getObservacao() { return observacao; }
+    public void setObservacao(String observacao) { this.observacao = observacao; }
 
-    public String toString(){
+    @Override
+    public String toString() {
         return "=== CONSULTA ==="
-                + "\n Paciente: " + paciente.getNome() + " | CPF: " + paciente.getCpf()
-                + "\n Médico: " + medico.getNome() + " | CRM: " + medico.getCrm()
+                + "\n Paciente: "      + paciente.getNome()        + " | CPF: "  + paciente.getCpf()
+                + "\n Médico: "        + medico.getNome()          + " | CRM: "  + medico.getCrm()
                 + "\n Especialidade: " + medico.getEspecialidade()
-                + "\n Data: " + data
-                + "\n Horário: " + horario
-                + "\n Status: " + status
-                + "\n Obs: " + observacao;
+                + "\n Data: "          + data
+                + "\n Horário: "       + horario
+                + "\n Status: "        + status
+                + "\n Obs: "           + observacao;
     }
-    
 }

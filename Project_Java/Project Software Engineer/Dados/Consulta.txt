@@ -1,0 +1,6 @@
+11111111111;1001;01/09/2026;08:00;Agendada;Consulta de rotina
+22222222222;1002;02/09/2026;09:00;Agendada;Avaliacao ortopedica
+33333333333;1003;03/09/2026;10:00;Agendada;Consulta pediatrica
+44444444444;1004;04/09/2026;14:00;Agendada;Avaliacao dermatologica
+55555555555;1005;05/09/2026;15:00;Agendada;Avaliacao neurologica
+01010101010;5555;15/09/2026;14:30;Agendada;Consulta de revisao
